@@ -38,6 +38,7 @@ export default class PomodoroClock extends Component {
         this.stopTimer = this.stopTimer.bind(this);
         this.resetTimer = this.resetTimer.bind(this);
         this.tick = this.tick.bind(this);
+        this.playBeep = this.playBeep.bind(this);
 
         this.state = {
             breakSetting: defaultBreak,
@@ -73,6 +74,15 @@ export default class PomodoroClock extends Component {
         }
     }
 
+    async playBeep() {
+        try {
+            await this.audio.play();
+            //   playButton.className = "playing";
+        } catch (err) {
+            //   playButton.className = "";
+            console.log(err);
+        }
+    }
 
     // called every second to figure out the time left to display
     tick() {
@@ -81,8 +91,8 @@ export default class PomodoroClock extends Component {
             this.setState((prevState) => ({ secondsLeft: prevState.secondsLeft - 1 }));
         } else {
 
-            this.audio.play();
-
+            // this.audio.play();
+            this.playBeep();
             this.setState(function (prevState) {
                 let flag = !this.state.session;
                 let minutes = flag ? this.state.sessionSetting : this.state.breakSetting;
