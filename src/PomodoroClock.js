@@ -62,7 +62,7 @@ export default class PomodoroClock extends Component {
     }
 
     handleSessionSetting = (change) => {
-
+        //only allow updates when timer is not running
         if (!this.state.running) {
             let newSetting = this.state.sessionSetting + change;
             if (newSetting > setterLowerLimit && newSetting <= setterUpperLimit)
@@ -71,7 +71,6 @@ export default class PomodoroClock extends Component {
                     secondsLeft: (prevState.sessionSetting + change) * 60
                 }));
         }
-
     }
 
 
@@ -82,17 +81,7 @@ export default class PomodoroClock extends Component {
             this.setState((prevState) => ({ secondsLeft: prevState.secondsLeft - 1 }));
         } else {
 
-            var playPromise = this.audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            }
-
-            this.stopTimer();
+            this.audio.play();
 
             this.setState(function (prevState) {
                 let flag = !this.state.session;
@@ -101,8 +90,6 @@ export default class PomodoroClock extends Component {
                 return { session: flag, secondsLeft: minutes * 60 }
             });
 
-            // start new timer
-            this.startTimer();
         }
     }
 
@@ -114,20 +101,9 @@ export default class PomodoroClock extends Component {
 
     resetTimer(e) {
 
-        var pausePromise = this.audio.pause();
+        this.audio.pause();
+        this.audio.currentTime = 0;
 
-        if (pausePromise !== undefined) {
-            pausePromise.then(_ => {
-                // Automatic playback started!
-                // Show playing UI.
-                this.audio.currentTime = 0;
-
-            })
-                .catch(error => {
-                    // Auto-play was prevented
-                    console.log(error);
-                });
-        }
         this.setState({
             session: true,
             breakSetting: defaultBreak,
