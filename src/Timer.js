@@ -19,7 +19,7 @@ const Time = styled.div`
 font-family: 'BebasNeueRegular'; 
 font-style: normal; 
 font-weight: bold;
-font-size: 2.5em;
+font-size: 1em;
 
  
 @media (min-width: 700px) {

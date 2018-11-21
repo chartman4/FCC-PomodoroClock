@@ -11,11 +11,16 @@ align-self: center;
 `
 
 const Control = styled.button`
-font-size: 1em;
+font-size: .5em;
 // width: 50px;
 margin: 5px;
 border-radius: 6px;
-
+border: 1px solid white;
+box-shadow: 0px 2px 0 grey, 2px 4px 6px #eee;
+&:hover {
+    box-shadow: 0px 2px 0 grey;
+    color: white;
+    }
 `
 
 export default class Controls extends Component {
@@ -49,17 +54,14 @@ export default class Controls extends Component {
     }
 
     render(props) {
-        // let icon = this.state.start ? "play" : "pause";
         let icon = this.state.start ? "START" : "PAUSE";
 
         return (
             <ControlsWrapper >
                 <Control id="start_stop" onClick={this.startStop}>
-                    {/* <FontAwesomeIcon icon={icon} /> */}
                     {icon}
                 </Control>
                 <Control id="reset" onClick={this.reset}>
-                    {/* <FontAwesomeIcon icon="redo" /> */}
                     RESET
                 </Control>
             </ControlsWrapper>
