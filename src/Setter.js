@@ -26,15 +26,17 @@ const Button = styled.button`
 `
 const Label = styled.label`
 font-weight: bold;
-// margin: 5px;
-font-size: 1em;
+font-size: .5em;
+@media (min-width: 700px) {
+    font-size: 1em;
+
+}
 `
 const ChangeWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
 // border: 2px solid purple;
-// margin: 10px;
 `
 const Counter = styled.div`
 // font-size: 2em;
