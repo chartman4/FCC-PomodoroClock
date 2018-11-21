@@ -12,11 +12,6 @@ const ClockWrapper = styled.div`
 display: grid;
 grid-template-rows: 60% 15% 15% 10%;
 
-// flex-direction: column;
-// align-content: stretch;
-// justify-content: center;
-// align-items: center;
-
 font-family: sans-serif;
 
 background-image: url("https://labs.jensimmons.com/2016/examples/images/tomato.jpg");
@@ -24,9 +19,7 @@ background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 
-// width:80%;  
 width: 70vw;
-// height: auto; 
 height: 100%;    
 max-width: 900px;
  
@@ -180,7 +173,6 @@ export default class PomodoroClock extends Component {
         let timerLabel = this.state.session ? "Work" : "Break";
         return (
             <ClockWrapper>
-
                 <Timer label={timerLabel} secondsLeft={this.state.secondsLeft} />
                 <Controls startTimer={this.startTimer}
                     stopTimer={this.stopTimer}

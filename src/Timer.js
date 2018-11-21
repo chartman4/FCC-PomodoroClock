@@ -3,22 +3,17 @@ import styled from "styled-components";
 
 
 const TimerWrapper = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: end;
-webkit-box-pack: end;
-
--webkit-justify-content: end;
-// font-size: 1em;
-// width: 50%;
-// border: 4px solid blue;
-
+display: grid;
+grid-template-rows: 2fr 1fr;
 `
 const Label = styled.div`
-// margin-top: 40%;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
 font-size: 1em;
 @media (min-width: 700px) {
     font-size: 1.5em;
+
 }
 `
 const Time = styled.div`
