@@ -5,25 +5,28 @@ import styled from "styled-components";
 const TimerWrapper = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
-font-size: 1em;
-width: 50%;
+justify-content: end;
+// font-size: 1em;
+// width: 50%;
 // border: 4px solid blue;
 
 `
 const Label = styled.div`
-margin-top: 40%;
-font-size: 1.1em;
+// margin-top: 40%;
+font-size: 1em;
+@media (min-width: 700px) {
+    font-size: 1.5em;
+}
 `
 const Time = styled.div`
 font-family: 'BebasNeueRegular'; 
 font-style: normal; 
 font-weight: bold;
-font-size: 1em;
+font-size: 1.5em;
 
  
 @media (min-width: 700px) {
-    font-size: 4.5em;
+    font-size: 4em;
 }
 `
 export default class Timer extends Component {

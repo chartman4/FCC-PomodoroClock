@@ -27,12 +27,12 @@ const Button = styled.button`
 const Label = styled.label`
 font-weight: bold;
 // margin: 5px;
-font-size: .7em;
+font-size: 1em;
 `
 const ChangeWrapper = styled.div`
 display: flex;
 flex-direction: row;
-justify-content: space-around;
+justify-content: center;
 // border: 2px solid purple;
 // margin: 10px;
 `

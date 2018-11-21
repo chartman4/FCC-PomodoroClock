@@ -9,13 +9,13 @@ import styled from "styled-components";
 const info = "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, separated by short breaks.  You can set the length of the work sessions and break sessions using the up and down arrows and start and stop the timer with the start button."
 
 const ClockWrapper = styled.div`
-display: flex;
-flex-direction: column;
+display: grid;
+grid-template-rows: 60% 15% 15% 10%;
+
+// flex-direction: column;
 // align-content: stretch;
-justify-content: center;
-align-items: center;
-flex: 2;
-border-radius: 6px;
+// justify-content: center;
+// align-items: center;
 
 font-family: sans-serif;
 
@@ -24,12 +24,13 @@ background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 
-width:80%;  
-height: auto; 
-// height: 70%;    
-max-width: 700px;
+// width:80%;  
+width: 70vw;
+// height: auto; 
+height: 100%;    
+max-width: 900px;
  
-// border: 4px solid green;
+border: 4px solid green;
 
 `
 
@@ -41,7 +42,6 @@ justify-content: center;
 `
 
 const Info = styled.div`
-margin-top: 70px;
  `
 
 const defaultSession = 25; //25

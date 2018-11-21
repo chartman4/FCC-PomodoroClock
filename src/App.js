@@ -12,14 +12,14 @@ library.add(fab, faArrowUp, faArrowDown, faPlay, faPause, faRedo)
 
 
 const Wrapper = styled.div`
-// display: grid;
-// grid-template-rows: 10vh 70vh 20vh;
-// justify-content: center;
+display: grid;
+grid-template-rows: 20vh 60vh 20vh;
+justify-content: center;
 // align-items: center;
-display: flex;
-flex-direction: column;
+// display: flex;
+// flex-direction: column;
 align-items: center;
-justify-content: space-around;
+// justify-content: space-around;
 
 border: 2px solid purple;
 align-content: center;
@@ -29,7 +29,7 @@ text-align: center;
 // min-height: 550px;
 // min-width: 80%;
 `;
-const Label = styled.h1`
+const Label = styled.div`
 font-family: 'Lobster', cursive;
 font-size: 20px;
 /* For width 600px and larger: */

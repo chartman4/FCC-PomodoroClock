@@ -11,7 +11,7 @@ align-self: center;
 `
 
 const Control = styled.button`
-font-size: .5em;
+font-size: 1em;
 // width: 50px;
 margin: 5px;
 border-radius: 6px;
