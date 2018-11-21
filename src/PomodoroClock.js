@@ -23,7 +23,7 @@ width: 70vw;
 height: 100%;    
 max-width: 900px;
  
-border: 4px solid green;
+// border: 4px solid green;
 
 `
 
