@@ -6,6 +6,9 @@ const TimerWrapper = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: end;
+webkit-box-pack: end;
+
+-webkit-justify-content: end;
 // font-size: 1em;
 // width: 50%;
 // border: 4px solid blue;
