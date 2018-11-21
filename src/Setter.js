@@ -8,31 +8,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const SetterWrapper = styled.div`
 display: flex;
 flex-direction: column;
-border: 2px solid pink;
-justify-content: space-between;
+// border: 2px solid pink;
+width: 90%;
+justify-content: center;
+// padding: 20px;
+
 `
 const Button = styled.button`
-    border-radius: 6px;
-    font-size: 2.5rem;
+    // border-radius: 6px;
+    // font-size: 1.5em;
     border: 1px solid white;
     box-shadow: 0px 2px 0 grey, 2px 4px 6px #eee;
-    
     &:hover {
         box-shadow: 0px 2px 0 grey;
         color: white;
         }
 `
 const Label = styled.label`
-font-size: 1.3em;
+font-weight: bold;
+// margin: 5px;
+font-size: .7em;
 `
 const ChangeWrapper = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-border: 2px solid green;
+// border: 2px solid purple;
+// margin: 10px;
 `
 const Counter = styled.div`
-font-size: 2em;
+// font-size: 2em;
+margin: 0 10px;
+font-family: 'Orbitron', sans-serif;
 width: 50px;
 `
 export default class Setter extends Component {
@@ -60,9 +67,9 @@ export default class Setter extends Component {
             <SetterWrapper>
                 <Label id={labelId}>{this.props.label}</Label>
                 <ChangeWrapper>
-                    <Button id={incId} onClick={this.onIncrement}><FontAwesomeIcon icon="plus" /></Button>
+                    <Button id={incId} onClick={this.onIncrement}><FontAwesomeIcon icon="arrow-up" /></Button>
                     <Counter id={lengthId}>{this.props.value}</Counter>
-                    <Button id={decId} onClick={this.onDecrement}><FontAwesomeIcon icon="minus" /></Button>
+                    <Button id={decId} onClick={this.onDecrement}><FontAwesomeIcon icon="arrow-down" /></Button>
                 </ChangeWrapper>
             </SetterWrapper>
 

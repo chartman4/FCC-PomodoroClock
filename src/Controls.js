@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 
 const ControlsWrapper = styled.div`
 display:flex;
 justify-content: space-around;
-font-size: 1.2em;
-border: 4px solid yellow;
+font-size:14px;
+// border: 4px solid yellow;
 justify-self: center;
 align-self: center;
 `
 
 const Control = styled.button`
-font-size: 2em;
-width: 50px;
+font-size: 1em;
+// width: 50px;
+margin: 5px;
+border-radius: 6px;
+
 `
 
 export default class Controls extends Component {
@@ -48,14 +49,18 @@ export default class Controls extends Component {
     }
 
     render(props) {
-        let icon = this.state.start ? "play" : "pause";
+        // let icon = this.state.start ? "play" : "pause";
+        let icon = this.state.start ? "START" : "PAUSE";
+
         return (
             <ControlsWrapper >
                 <Control id="start_stop" onClick={this.startStop}>
-                    <FontAwesomeIcon icon={icon} />
+                    {/* <FontAwesomeIcon icon={icon} /> */}
+                    {icon}
                 </Control>
                 <Control id="reset" onClick={this.reset}>
-                    <FontAwesomeIcon icon="redo" />
+                    {/* <FontAwesomeIcon icon="redo" /> */}
+                    RESET
                 </Control>
             </ControlsWrapper>
         );

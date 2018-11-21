@@ -2,32 +2,52 @@ import React, { Component } from "react";
 import Setter from './Setter';
 import Timer from './Timer';
 import Controls from './Controls';
+import Popup from "./Popup ";
 
 import styled from "styled-components";
 
+const info = "The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, separated by short breaks.  You can set the length of the work sessions and break sessions using the up and down arrows and start and stop the timer with the start button."
+
 const ClockWrapper = styled.div`
-display: grid;
-grid-template-rows: 25% 55% 20% 
-width: 95vw;
-background-color: #7f8084;
-border: 6px solid gray;
+display: flex;
+flex-direction: column;
+// align-content: stretch;
+justify-content: center;
+align-items: center;
+flex: 2;
 border-radius: 6px;
-height: 100%;
+
 font-family: sans-serif;
-grid-row: 2px;
-@media (min-width: 700px) {
-    width: 508px;
+
+background-image: url("https://labs.jensimmons.com/2016/examples/images/tomato.jpg");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+
+width:80%;  
+height: auto; 
+// height: 70%;    
+max-width: 700px;
+ 
+// border: 4px solid green;
+
 `
+
 const SettersWrapper = styled.div`
 display: grid;
 grid-template-columns: 40% 40%;
-justify-content: space-around;
+justify-content: center;
+// border: 2px red solid;
 `
+
+const Info = styled.div`
+margin-top: 70px;
+ `
+
 const defaultSession = 25; //25
 const defaultBreak = 5;  //5
 const setterUpperLimit = 60;
 const setterLowerLimit = 0;
-
 
 export default class PomodoroClock extends Component {
     constructor(props) {
@@ -47,11 +67,26 @@ export default class PomodoroClock extends Component {
             session: true,
             secondsLeft: defaultSession * 60,
             running: false,
+            showInfo: false,
+            isOpen: false
         };
         this.url = "http://streaming.tdiradio.com:8000/house.mp3";
         this.audio = new Audio(this.url);
 
     }
+
+    openPopup = () => {
+        this.setState({
+            isOpen: true
+        });
+    }
+
+    closePopup = () => {
+        this.setState({
+            isOpen: false
+        });
+    }
+
 
     handleBreakSetting = (change) => {
         // only allow updates when timer is not running
@@ -142,29 +177,35 @@ export default class PomodoroClock extends Component {
     }
 
     render() {
-        let timerLabel = this.state.session ? "Session" : "Break";
+        let timerLabel = this.state.session ? "Work" : "Break";
         return (
             <ClockWrapper>
 
-                {/* Session and Break Length Setters */}
+                <Timer label={timerLabel} secondsLeft={this.state.secondsLeft} />
+                <Controls startTimer={this.startTimer}
+                    stopTimer={this.stopTimer}
+                    resetTimer={this.resetTimer} />
                 <SettersWrapper>
                     <Setter id="break" label="Break Length"
                         value={this.state.breakSetting}
                         handleChange={this.handleBreakSetting}
                     />
+
                     <Setter id="session" label="Session Length"
                         value={this.state.sessionSetting}
                         handleChange={this.handleSessionSetting}
                     />
                 </SettersWrapper>
-                {/* <Timer label={timerLabel} minutes={this.state.minutes} seconds={this.state.seconds} /> */}
+                <Info>
+                    <button onClick={this.openPopup}>
+                        Click Me for Instructions!
+        </button>
 
-                <Timer label={timerLabel} secondsLeft={this.state.secondsLeft}
-                />
-                <Controls startTimer={this.startTimer}
-                    stopTimer={this.stopTimer}
-                    resetTimer={this.resetTimer} />
-
+                    <Popup show={this.state.isOpen}
+                        onClose={this.closePopup}
+                        message={info}>
+                    </Popup>
+                </Info>
                 <audio
                     ref={ref => (this.audio = ref)}
                     id="beep"

@@ -4,18 +4,27 @@ import styled from "styled-components";
 
 const TimerWrapper = styled.div`
 display: flex;
-justify-content: center;
-align-items: center;
-font-size: 2em;
-width: 100%;
-border: 4px solid blue;
+flex-direction: column;
+justify-content: space-evenly;
+font-size: 1em;
+width: 50%;
+// border: 4px solid blue;
 
 `
 const Label = styled.div`
-
+margin-top: 40%;
+font-size: 1.1em;
 `
 const Time = styled.div`
+font-family: 'BebasNeueRegular'; 
+font-style: normal; 
+font-weight: bold;
+font-size: 2.5em;
 
+ 
+@media (min-width: 700px) {
+    font-size: 4.5em;
+}
 `
 export default class Timer extends Component {
 
